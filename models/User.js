@@ -11,10 +11,8 @@ const UserSchema = new Schema({
         type: String,
         unique: true,
         required: true,
-        validate: {
-            validator: () => Promise.resolve(false),
-            message: 'Email validation failed'
-        }
+        // use regex to validate email
+        match: /.+\@.+\..+/
     },
     thoughts: [
         {
@@ -45,7 +43,4 @@ UserSchema.virtual('friendCount').get(function () {
     return this.friends.length
 })
 
-// run email validator and catch err and send message
-user.validate().catch(error => {
-    assert.equal(error.errors['email'].message, 'Email validation failed');
-});
+module.exports = User;
