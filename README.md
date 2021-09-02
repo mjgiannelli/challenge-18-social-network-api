@@ -33,7 +33,11 @@
 
   ## [Usage](#table-of-contents)
 
-  After installation is complete, run the following code `npm install` in the terminal. This will download all of the applicable npm packages needed to run the app. After the packages are installed, run `npm run dev` in the terminal to start the server. You'll now be good to test the routes in Insomnia
+  After installation is complete, run the following code `npm install` in the terminal. This will download all of the applicable npm packages needed to run the app. After the packages are installed, run `npm run dev` in the terminal to start the server. You'll now be good to test the routes in Insomnia.
+
+  [Tutorial show CRUD functionality part 1](https://drive.google.com/file/d/141p0UH4Mt8L5DZh9fJxQR3UT4QyDf1nI/view)
+
+  [Tutorial show CRUD functionality part 2](https://drive.google.com/file/d/1iBaC3txpxf8zI532AFie1qtSnWTdaHYI/view)
   
   ## [Contributing](#table-of-contents)
   
