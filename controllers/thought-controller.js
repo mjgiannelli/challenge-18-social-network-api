@@ -36,12 +36,15 @@ const thoughtController = {
             })
     },
     addThought({ params, body }, res) {
+        console.log('this is the body');
         console.log(body);
         Thought.create(body)
             .then(({ _id }) => {
+                console.log('this is the _id');
+                console.log(_id);
                 return User.findOneAndUpdate(
-                    { _id: params.userId },
-                    { $push: { comments: _id } },
+                    { _id: body.userId },
+                    { $push: { thoughts: _id } },
                     { new: true, runValidators: true }
                 );
             })
@@ -82,15 +85,15 @@ const thoughtController = {
             .catch(err => res.status(400).json(err));
     },
     // remove a thought from a User
-    removeThought({ params }, res) {
-        Thought.findOneAndDelete({ _id: params.thoughtId })
+    removeThought({ params, body }, res) {
+        Thought.findOneAndDelete({ _id: params.id })
             .then(deletedThought => {
                 if (!deletedThought) {
                     return res.status(404).json({ message: 'No thought with this id!' })
                 }
                 return User.findOneAndUpdate(
-                    { _id: params.userId },
-                    { $pull: { thoughts: params.thoughtId } },
+                    { _id: body.userId },
+                    { $pull: { thoughts: params.id } },
                     { new: true }
                 )
             })

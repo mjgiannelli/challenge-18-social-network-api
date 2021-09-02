@@ -5,6 +5,7 @@ const { getAllThoughts, getThoughtById, updateThought, addThought, removeThought
 router
     .route('/')
     .get(getAllThoughts)
+    .post(addThought);
 
 // set up get, put, and delete routes for thoughts
 router
